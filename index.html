@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>DOOM</title>
+  <script src="https://js-dos.com/6.22/current/js-dos.js"></script>
+  <style>
+    canvas {
+      width: 640px;
+      height: 400px;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="jsdos"></canvas>
+  <script>
+    Dos(document.getElementById("jsdos"), { 
+        wdosboxUrl: "https://js-dos.com/6.22/current/wdosbox.js" 
+    }).ready((fs, main) => {
+      fs.extract("https://cdn.rawgit.com/darrengruber/docker-em-dosbox-doom/afad47b2/doom_shareware/doom19s_deiced.zip").then(() => {
+        main(["-c", "DOOM.EXE"])
+      });
+    });
+  </script>
+</body>
+
+</html>
